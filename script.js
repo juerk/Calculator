@@ -1,225 +1,394 @@
-// get delete button working
-// get decimals to work
-// put a character limit so numbers dont go off screen
-// condense all of these variable changes into a function
+// append outputs to screen
+// backspce button
+// decimal btn
+//
+//
+//
 
 
-let buttonValue = '';
-let ranOnce;
+
+let operatorSwitch; // Equals Mode
+let numberSwitch = 'First Number' // Second Number // Third Number
+
+let firstNumber = '';
+let secondNumber = '';
+let thirdNumber = '';
+let finalNumber = '';
 let operator;
-let equalsReady = false;
-let buttonReady = false;
-let operatorReady = false;
+let currentResult = '';
+let firstGo = true;
+
+let nextOperator;
+let equalSign;
+operateReady = false;
+
+let multiplyBtn = document.querySelector('.multiplyBtn')
+let subtractBtn = document.querySelector('.subtractBtn')
+let divideBtn = document.querySelector('.divideBtn')
+let remainderBtn = document.querySelector('.remainderBtn')
+let addBtn = document.querySelector('.addBtn')
+let equalsBtn = document.querySelector('.equalsBtn')
+
+let oneBtn = document.querySelector('.oneBtn')
+let twoBtn = document.querySelector('.twoBtn')
+let threeBtn = document.querySelector('.threeBtn')
+let fourBtn = document.querySelector('.fourBtn')
+let fiveBtn = document.querySelector('.fiveBtn')
+let sixBtn = document.querySelector('.sixBtn')
+let sevenBtn = document.querySelector('.sevenBtn')
+let eightBtn = document.querySelector('.eightBtn')
+let nineBtn = document.querySelector('.nineBtn')
+let zeroBtn = document.querySelector('.zeroBtn')
+
 let outputContainer = document.querySelector('.outputContainer');
 let answerContainer = document.querySelector('.answerContainer');
 let calculator = document.querySelector('.calculator');
 
-
-// road work
-
-
-// let backspaceBtn = document.querySelector('.backspaceBtn');
-// backspaceBtn.addEventListener('click', () => {
-
-// })
-
-// // need to create a variable that is turned on after the operator is hit so the second time it is hit 
-// // it acts normal until it is hit again
-
-// let buttonStatus = false;
-
-// function operatorSwitch() {
-
-//   console.log('buttonStatus', buttonStatus);
-//   console.log('buttonReady', buttonReady);
-//   console.log('equalsReady', equalsReady);
-
-//   currentValue = buttonValue;
-//   buttonValue = '';
-//   buttonReady = false;
-//   equalsReady = true;
-//   operatorReady = true;
-//   if (ranOnce === 'yes') {
-//     currentValue = ranThrough;
-//   } 
-// }
-
-
-// end road work
-
-
-let allclearBtn = document.querySelector('.allclearBtn');
-allclearBtn.addEventListener('click', () => {
-  location.reload(calculator);
-})
-
-let oneBtn = document.querySelector('.oneBtn');
 oneBtn.addEventListener('click', () => {
-  buttonValue += 1;
-  outputContainer.append(1);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 1;
+    operatorSwitch = 'Operator Selection'
+    outputContainer.append('1')
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 1;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    outputContainer.append('1')
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '1';
+    operateReady = true;
+    outputContainer.append('1')
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let twoBtn = document.querySelector('.twoBtn');
 twoBtn.addEventListener('click', () => {
-  buttonValue += 2;
-  outputContainer.append(2);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 2;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 2;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '2';
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let threeBtn = document.querySelector('.threeBtn');
 threeBtn.addEventListener('click', () => {
-  buttonValue += 3;
-  outputContainer.append(3);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 3;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 3;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '3';
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let fourBtn = document.querySelector('.fourBtn');
 fourBtn.addEventListener('click', () => {
-  buttonValue += 4;
-  outputContainer.append(4);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 4;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 4;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '4';
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let fiveBtn = document.querySelector('.fiveBtn');
 fiveBtn.addEventListener('click', () => {
-  buttonValue += 5;
-  outputContainer.append(5);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 5;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 5;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '5';
+    outputContainer.append('*')
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let sixBtn = document.querySelector('.sixBtn');
 sixBtn.addEventListener('click', () => {
-  buttonValue += 6;
-  outputContainer.append(6);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 6;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 6;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '6';
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let sevenBtn = document.querySelector('.sevenBtn');
 sevenBtn.addEventListener('click', () => {
-  buttonValue += 7;
-  outputContainer.append(7);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 7;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 7;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '7';
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let eightBtn = document.querySelector('.eightBtn');
 eightBtn.addEventListener('click', () => {
-  buttonValue += 8;
-  outputContainer.append(8);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 8;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 8;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '8';
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let nineBtn = document.querySelector('.nineBtn');
 nineBtn.addEventListener('click', () => {
-  buttonValue += 9;
-  outputContainer.append(9);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 9;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 9;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '9';
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-let zeroBtn = document.querySelector('.zeroBtn');
 zeroBtn.addEventListener('click', () => {
-  buttonValue += 0;
-  outputContainer.append(0);
-  buttonReady = true;
+  if (numberSwitch === 'First Number') {
+    firstNumber += 0;
+    operatorSwitch = 'Operator Selection'
+    console.log('firstNumber', firstNumber)
+  } else if (numberSwitch === 'Second Number') {
+    secondNumber += 0;
+    operatorSwitch = 'Equals'; // previously Next Equals
+    operateReady = true;
+    console.log('secondNumber', secondNumber)
+  } else if (numberSwitch === 'Third Number') {
+    thirdNumber += '0';
+    operateReady = true;
+    console.log('thirdNumber', thirdNumber)
+  }
 })
 
-function operatorSwitch() {
-  currentValue = buttonValue;
-  buttonValue = '';
-  buttonReady = false;
-  equalsReady = true;
-  operatorReady = true;
+function appendNum () {
+  operateReady = true;
+  console.log('thirdNumber', thirdNumber)
 }
 
-let divideBtn = document.querySelector('.divideBtn');
-divideBtn.addEventListener('click', () => {
-  if (operatorReady === false) {
-    operator = '/';
-    outputContainer.append(' / ');
-    operatorSwitch();
 
-  }
-})
 
-let minusBtn = document.querySelector('.minusBtn');
-minusBtn.addEventListener('click', () => {
-  if (operatorReady === false) {
-    operator = '-';
-    outputContainer.append(' - ');
-    operatorSwitch();
-  }
-})
-
-let addBtn = document.querySelector('.addBtn');
-addBtn.addEventListener('click', () => {
-  if (operatorReady === false) {
-    operator = '+';
-    outputContainer.append(' + ')
-    operatorSwitch();
-  }
-})
-
-let remainderBtn = document.querySelector('.remainderBtn');
-remainderBtn.addEventListener('click', () => {
-  if (operatorReady === false) {
-    operator = '%';
-    outputContainer.append(' % ');
-    operatorSwitch();
-  }
-})
-
-let multiplyBtn = document.querySelector('.multiplyBtn');
 multiplyBtn.addEventListener('click', () => {
-  if (operatorReady === false) {
+  if (operatorSwitch === 'Operator Selection') {
     operator = '*';
-    outputContainer.append(' * ');
-    operatorSwitch();
+    outputContainer.append('*')
+    console.log('*')
+    numberSwitch = 'Second Number';
+  } else if (operatorSwitch === 'Equals') {
+    operate();
+    outputContainer.append('*')
+    operator = '*';
+    console.log('*')
+  } else if (operatorSwitch === 'ONLY Equals') {
+    operator = '*';
+    outputContainer.append('*')
+    operatorSwitch = 'Equals';
+    console.log('*')
   }
 })
 
-let equalsBtn = document.querySelector('.equalsBtn');
-equalsBtn.addEventListener('click', () => {
-  doEquals();
+subtractBtn.addEventListener('click', () => {
+  if (operatorSwitch === 'Operator Selection') {
+    operator = '-';
+    numberSwitch = 'Second Number';
+    console.log('-')
+  } else if (operatorSwitch === 'Equals') {
+    operate();
+    operator = '-';
+    console.log('-')
+  } else if (operatorSwitch === 'ONLY Equals') {
+    operator = '-';
+    operatorSwitch = 'Equals';
+    console.log('-');
+  }
+}) 
+
+divideBtn.addEventListener('click', () => {
+  if (operatorSwitch === 'Operator Selection') {
+    operator = '/';
+    numberSwitch = 'Second Number';
+    console.log('/')
+  } else if (operatorSwitch === 'Equals') {
+    operate();
+    operator = '/';
+    console.log('/')
+  } else if (operatorSwitch === 'ONLY Equals') {
+    operator = '/';
+    operatorSwitch = 'Equals';
+    console.log('/');
+  }
 })
 
-function doEquals() {
-  if (buttonReady === true && equalsReady === true) {
-    firstValue = buttonValue;
+remainderBtn.addEventListener('click', () => {
+  if (operatorSwitch === 'Operator Selection') {
+    operator = '%';
+    numberSwitch = 'Second Number';
+    console.log('%')
+  } else if (operatorSwitch === 'Equals') {
     operate();
-    } else {
-      console.log('not ready');
-    }
-    equalsReady = false;
-    operatorReady = false;
-}
+    operator = '%';
+    console.log('%')
+  } else if (operatorSwitch === 'ONLY Equals') {
+    operator = '%';
+    operatorSwitch = 'Equals';
+    console.log('%');
+  }
+})
+
+addBtn.addEventListener('click', () => {
+  if (operatorSwitch === 'Operator Selection') {
+    operator = '+';
+    numberSwitch = 'Second Number';
+    console.log('+')
+  } else if (operatorSwitch === 'Equals') {
+    operate();
+    operator = '+';
+    console.log('+')
+  } else if (operatorSwitch === 'ONLY Equals') {
+    operator = '+';
+    operatorSwitch = 'Equals';
+    console.log('+');
+  }
+}) 
+
+
+
+
+
+equalsBtn.addEventListener('click', () => {
+  console.log('=');
+  equalSign = true;
+  operate();
+})
+
+
+
+
+
+
+
 
 
 
 function operate() {
-  ranOnce = 'yes';
-  if (operator === '*') {
-    currentValue *= firstValue;
-    operateOperators();
-  } else if (operator === '/') {
-    currentValue /= firstValue;
-    operateOperators();
-  } else if (operator === '-') {
-    currentValue -= firstValue;
-    operateOperators();
-  } else if (operator === '+') {
-    currentValue = parseInt(currentValue) + parseInt(firstValue);
-    operateOperators();
-  } else if (operator === '%') {
-    currentValue %= firstValue;
-    operateOperators();
+  if (operateReady === false) {
+    console.log('awaiting input')
+  } else if (operator === '*' && firstGo === true) {
+    currentResult = firstNumber * secondNumber;
+    firstGoEquals();
+  } else if (operator === '-' && firstGo === true) {
+    currentResult = firstNumber - secondNumber;
+    firstGoEquals();
+  } else if (operator === '/' && firstGo === true) {
+    currentResult = firstNumber / secondNumber;
+    firstGoEquals();
+  } else if (operator === '%' && firstGo === true) {
+    currentResult = firstNumber % secondNumber;
+    firstGoEquals();
+  } else if (operator === '+' && firstGo === true) {
+    currentResult = parseInt(firstNumber) + parseInt(secondNumber);
+    firstGoEquals();
+  } else if (operator === '*' && firstGo === false) {
+    currentResult *= thirdNumber;
+    console.log('equals', currentResult);
+    equals();
+  } else if (operator === '-' && firstGo === false) {
+    currentResult -= thirdNumber;
+    console.log('equals', currentResult);
+    equals();
+  } else if (operator === '/' && firstGo === false) {
+    currentResult /= thirdNumber;
+    console.log('equals', currentResult);
+    equals();
+  } else if (operator === '%' && firstGo === false) {
+    currentResult %= thirdNumber;
+    console.log('equals', currentResult);
+    equals();
+  } else if (operator === '+' && firstGo === false) {
+    currentResult = parseInt(currentResult) + parseInt(thirdNumber);
+    console.log('equals', currentResult);
+    equals();
   }
-  console.log(currentValue);
 }
 
-function operateOperators() {
-  outputContainer.replaceChildren(currentValue);
-  answerContainer.append(currentValue);
-  answerContainer.replaceChildren(currentValue);
-  ranThrough = currentValue;
+function firstGoEquals() {
+  if (equalSign === true) {
+    firstGo = false;
+    numberSwitch = 'Third Number';
+    thirdNumber = '';
+    operatorSwitch = 'ONLY Equals';
+    equalSign = false;
+    operateReady = false;
+    console.log('ONLY EQUALS firstGoEquals', currentResult);
+  } else {
+    firstGo = false;
+    numberSwitch = 'Third Number';
+    operatorSwitch = 'Equals';
+    operateReady = false;
+    console.log('firstGoEquals', currentResult);
+  }
 }
 
+function equals() {
+  operatorSwitch = 'Equals';
+  operator = '';
+  thirdNumber = '';
+  operateReady = false;
+}
